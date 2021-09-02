@@ -1,0 +1,12 @@
+<div id="gh-search-modal">
+    <div class="wrapper">
+        <div class="main">
+            <form>
+                {{> "icons/search"}}
+                <input id="search-field" placeholder="Search ..." autocomplete="off" autofocus/>
+                <span onClick="showSearch()">{{> "icons/close"}}</span>
+            </form>
+            <div id="results" onClick="showSearch()"></div>
+        </div>
+    </div>
+</div>

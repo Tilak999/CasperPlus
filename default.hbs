@@ -12,6 +12,7 @@
     {{!-- Theme assets - use the {asset} helper to reference styles & scripts,
     this will take care of caching and cache-busting automatically --}}
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/search.css"}}" />
 
     {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
     it should always be the last tag before the closing head tag --}}
@@ -20,7 +21,7 @@
 </head>
 <body class="{{body_class}}">
 <div class="viewport">
-
+    {{> "search-modal"}}
     <header id="gh-head" class="gh-head {{#if @site.cover_image}}has-cover{{/if}}">
         <nav class="gh-head-inner inner gh-container">
 
@@ -50,6 +51,8 @@
                         <a class="gh-social-twitter" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
                     {{/if}}
                 </div>
+
+                <a class="gh-head-button gh-head-search-button" href="javascript:showSearch()">{{> "icons/search"}}&nbsp;Search</a>
 
                 {{#unless @member}}
                     <a class="gh-head-button" href="#/portal/signup">Subscribe</a>
@@ -87,6 +90,15 @@
     crossorigin="anonymous">
 </script>
 <script src="{{asset "built/casper.js"}}"></script>
+
+<script src="{{asset "js/ghostHunter.js"}}"></script>
+<script>
+    $("#search-field").ghostHunter({ results: "#results", onKeyUp: true });
+    function showSearch() {
+        $("#gh-search-modal").fadeToggle();
+        $("#search-field").focus();
+    }
+</script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger
