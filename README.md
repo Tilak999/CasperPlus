@@ -1,4 +1,6 @@
-# Casper
+# Casper Plus
+
+> This theme is modified to add search functionality (more information at the end)
 
 The default theme for [Ghost](http://github.com/tryghost/ghost/). This is the latest development version of Casper! If you're just looking to download the latest release, head over to the [releases](https://github.com/TryGhost/Casper/releases) page.
 
@@ -63,6 +65,18 @@ Casper uses inline SVG icons, included via Handlebars partials. You can find all
 
 You can add your own SVG icons in the same manner.
 
+# Search
+
+This theme is modified to add client side search function (thanks to awesome project: ghostHunter). Create a custom integration to get the API key.
+<br/><br/>
+Add the following code in header injection with the obtained API key.
+
+```
+<script>
+    var ghosthunter_key = 'CUSTOM_INTEGRATION_API_KEY';
+    var ghost_root_url = "/ghost/api/v2"
+</script>
+```
 
 # Copyright & License
 
